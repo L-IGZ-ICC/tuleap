@@ -49,6 +49,7 @@ use Widget_ProjectLatestSvnCommits;
 use Widget_ProjectPublicAreas;
 use Widget_ProjectRss;
 use Widget_ProjectSvnStats;
+use Widget_IgzAddons;
 
 class WidgetFactory
 {
@@ -175,6 +176,10 @@ class WidgetFactory
                     )
                 );
                 break;
+            case 'igzaddons':
+            $widget = new Widget_IgzAddons();
+            break;
+
             default:
                 $get_widget_event = $this->event_manager->dispatch(new GetWidget($widget_name));
                 $widget           = $get_widget_event->getWidget();

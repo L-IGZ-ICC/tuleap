@@ -41,6 +41,7 @@ class GetProjectWidgetList extends GetWidgetList
         'projectrss',
         'projectimageviewer',
         'projectcontacts',
+        'igzaddons',
         ProjectNote::NAME,
     ];
 
