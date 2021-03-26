@@ -83,7 +83,7 @@ class Tracker_FormElement_Field_Float extends Tracker_FormElement_Field_Numeric
         return true;
     }
 
-    protected $pattern = '[+\-]?\d+(?:\.\d+)?(?:[eE][+\-]?\d+)?';
+    protected $pattern = '[+\-]?\d+(?:\,\d+)?(?:[eE][+\-]?\d+)?';
     protected function cast($value)
     {
         return (float) $value;
@@ -112,9 +112,10 @@ class Tracker_FormElement_Field_Float extends Tracker_FormElement_Field_Numeric
         if ($value === null) {
             return '';
         } else {
-            return (string) (float) number_format($value, self::FLOAT_DECIMALS, '.', '');
+            return number_format($value, self::FLOAT_DECIMALS, ',', '');
         }
     }
+
 
     protected function getValueDao()
     {

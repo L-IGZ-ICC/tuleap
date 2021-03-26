@@ -32,6 +32,6 @@ class ChangesChecker
             $value_to_compare = (float) $new_value;
         }
 
-        return $old_value->getNumeric() !== $value_to_compare;
+        return $old_value->getValue() !== $new_value;
     }
 }

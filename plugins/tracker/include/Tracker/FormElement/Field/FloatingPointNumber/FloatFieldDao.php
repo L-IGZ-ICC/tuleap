@@ -50,7 +50,7 @@ class FloatFieldDao extends SpecificPropertiesDao
         }
 
         if (isset($row['default_value']) && trim($row['default_value']) !== '') {
-            $default_value = (float) $row['default_value'];
+            $default_value = floatval(str_replace(',','.', $row['default_value']));
         } else {
             $default_value = "NULL";
         }

@@ -33,13 +33,12 @@ class FloatValueDao extends NumericFieldValueDao
         $this->table_name = 'tracker_changeset_value_float';
     }
 
-    public function create($changeset_value_id, $value)
-    {
+    public function create($changeset_value_id, $value) {
         $changeset_value_id = $this->da->escapeInt($changeset_value_id);
         if ($value === "") {
             $value = "NULL";
         } else {
-            $value = floatval($value);
+            $value = floatval(str_replace(',','.', $value));
         }
         $sql = "INSERT INTO $this->table_name(changeset_value_id, value)
                 VALUES ($changeset_value_id, $value)";
